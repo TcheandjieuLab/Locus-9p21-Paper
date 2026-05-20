@@ -96,3 +96,21 @@ Rscript plot_maf_cdf.R \
 ```
 
 ---
+
+## Iterative Conditional Analysis
+
+### 1. `conditional_analysis.sh`
+
+Performs iterative PLINK2 conditional association analysis within a user-specified genomic region.
+
+**Workflow:**
+- Runs PLINK2 association analysis using configurable genotype, phenotype, and covariate inputs
+- Supports standard association filters (`MAF`, `MAC`, `MACH R²`, etc.)
+- Automatically identifies the top associated SNP from each run (lowest p-value)
+- Appends the top SNP to a running condition list
+- Repeats conditional analysis for a user-defined number of iterations
+
+**Features:**
+- Region-based analysis (`CHR`, `REGION_START`, `REGION_END`)
+- Automatic iterative conditioning
+- Handles PLINK scientific-notation p-values correctly
